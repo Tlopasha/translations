@@ -1,0 +1,45 @@
+{% extends "antares/foundation::layouts.antares.index" %}
+{% block content %}
+    <div class="separator"></div>
+    <div class="col-group">
+        <div class="col-8">                
+            {% include 'antares/translations::admin.partials._groups' %}                    
+        </div>                
+        <div class="col-8 flex flex-fe">
+            {% if languages is not empty %} 
+                <div class="col-8 w200">
+                    <div class="form-block">                                
+                        <div class="input-field input-field--icon">
+                            <span class="input-field__icon"><span class="flag-icon"></span></span>                                        
+                            <select class="change-language" data-selectar="true"  data-flag-select>
+                                {% for language in languages %}
+                                    <option {{current.code==language.code?'selected="selected"':''}} value="{{language.code|lower}}" data-country="{{ language.code|lower=='en'?'us':language.code|lower }}" data-url="{{ handles('antares::translations/index/'~id~'/'~language.code|lower) }}">                                    
+                                        {{ language.name }} 
+                                    </option>                        
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                </div>                                
+            {% endif %}   
+        </div>
+    </div>
+    <div class="col-group">
+        <div class="col-16">                
+            <form action="{{ handles('antares::translations/translation/update/'~id) }}" method="POST" class="translations-container">
+                {{ dataTable.scripts()|raw }}                       
+                {{ dataTable.tableDeferred()|raw }}
+
+                <div class="separator"></div>
+                <div class="separator"></div>
+                <div class="app-content__footer">                        
+                    <div class="btn-group">
+                        <button type="submit" class="btn btn--md btn--primary mdl-button mdl-js-button" >
+                            {{ trans('antares/foundation::label.save_changes') }}
+                        </button>                            
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
