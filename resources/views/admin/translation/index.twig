@@ -1,6 +1,5 @@
 {% extends "antares/foundation::layouts.antares.index" %}
 {% block content %}
-    <div class="separator"></div>
     <div class="col-group">
         <div class="col-8">                
             {% include 'antares/translations::admin.partials._groups' %}                    
@@ -28,10 +27,7 @@
         <div class="col-16">                
             <form action="{{ handles('antares::translations/translation/update/'~id) }}" method="POST" class="translations-container">
                 {{ dataTable.scripts()|raw }}                       
-                {{ dataTable.tableDeferred()|raw }}
-
-                <div class="separator"></div>
-                <div class="separator"></div>
+                {{ dataTable.tableDeferred()|raw }}                
                 <div class="app-content__footer">                        
                     <div class="btn-group">
                         <button type="submit" class="btn btn--md btn--primary mdl-button mdl-js-button" >
