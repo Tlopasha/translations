@@ -17,9 +17,6 @@
  * @copyright  (c) 2017, Antares Project
  * @link       http://antaresproject.io
  */
-
-
-
 use Illuminate\Routing\Router;
 
 $router->group(['prefix' => 'translations'], function (Router $router) {
@@ -34,6 +31,11 @@ $router->group(['prefix' => 'translations'], function (Router $router) {
 
     $router->post('translation/{type}', 'TranslationController@translation');
     $router->post('translation/update/{type}', 'TranslationController@update');
+
+    $router->post('update-key/{type}', 'TranslationController@updateKey');
+    $router->post('update-translation/{type}', 'TranslationController@updateTranslation');
+    $router->post('delete-translation/{type}', 'TranslationController@deleteTranslation');
+    $router->post('add-translation/{type}/{code}', 'TranslationController@addTranslation');
 
 
     $router->get('languages', 'LanguageController@index');

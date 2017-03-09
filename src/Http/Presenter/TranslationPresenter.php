@@ -18,8 +18,6 @@
  * @link       http://antaresproject.io
  */
 
-
-
 namespace Antares\Translations\Http\Presenters;
 
 use Antares\Translations\Contracts\TranslationPresenter as PresenterContract;
@@ -56,8 +54,15 @@ class TranslationPresenter implements PresenterContract
      */
     public function table($id, $current, $languages, array $list)
     {
+        app('antares.asset')->container('antares/foundation::application')->add('webpack_brand_settings', '/webpack/view_brand_settings.js', ['app_cache'])
+                ->add('webpack_forms_advanced', '/webpack/forms_advanced.js', ['webpack_brand_settings'])
+                ->add('translations_requirements', '/webpack/translations_requirements.js', ['webpack_forms_advanced']);
         publish('translations', ['js/translations.js']);
-        return $this->translations->render('antares/translations::admin.translation.index', compact('dataTable', 'languages', 'current', 'list', 'id'));
+        $view = request()->get('view') == 'index2' ? 'index2' : 'index';
+
+
+
+        return $this->translations->render('antares/translations::admin.translation.' . $view, compact('dataTable', 'languages', 'current', 'list', 'id'));
     }
 
 }

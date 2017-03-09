@@ -18,8 +18,6 @@
  * @link       http://antaresproject.io
  */
 
-
-
 namespace Antares\Translations\Processor;
 
 use Antares\Translations\Contracts\TranslationPresenter as Presenter;
@@ -139,6 +137,53 @@ class TranslationProcessor extends Processor
             Log::warning($e);
             return $listener->groupFailedFailed($e->getMessage());
         }
+    }
+
+    public function updateKey()
+    {
+        $translation      = Translation::query()->findOrFail(input('id'));
+        $translation->key = input('value');
+        if ($translation->save()) {
+            return new JsonResponse(['message' => trans('antares/translations::messages.response.translation_key_updated')], 200);
+        }
+        return new JsonResponse(['message' => trans('antares/translations::messages.response.translation_key_update_failed')], 500);
+    }
+
+    public function updateTranslation()
+    {
+        $translation        = Translation::query()->findOrFail(input('id'));
+        $translation->value = input('value');
+        if ($translation->save()) {
+            return new JsonResponse(['message' => trans('antares/translations::messages.response.translation_updated')], 200);
+        }
+        return new JsonResponse(['message' => trans('antares/translations::messages.response.translation_update_failed')], 500);
+    }
+
+    public function deleteTranslation()
+    {
+        $translation = Translation::query()->findOrFail(input('id'));
+        if ($translation->delete()) {
+            return new JsonResponse(['message' => trans('antares/translations::messages.response.translation_deleted')], 200);
+        }
+        return new JsonResponse(['message' => trans('antares/translations::messages.response.translation_delete_failed')], 500);
+    }
+
+    public function addTranslation($type, $locale)
+    {
+        $lang        = Languages::query()->where('code', $locale)->firstOrFail();
+        $group       = input('group', 'foundation');
+        $translation = new Translation([
+            'locale'  => $locale,
+            'area'    => $type,
+            'lang_id' => $lang->id,
+            'group'   => 'antares/' . ($group == 'all' ? 'foundation' : $group),
+            'key'     => input('key'),
+            'value'   => input('translation'),
+        ]);
+        if ($translation->save()) {
+            return new JsonResponse(['message' => trans('antares/translations::messages.response.translation_saved')], 200);
+        }
+        return new JsonResponse(['message' => trans('antares/translations::messages.response.translation_save_failed')], 500);
     }
 
 }
