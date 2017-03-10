@@ -58,11 +58,7 @@ class TranslationPresenter implements PresenterContract
                 ->add('webpack_forms_advanced', '/webpack/forms_advanced.js', ['webpack_brand_settings'])
                 ->add('translations_requirements', '/webpack/translations_requirements.js', ['webpack_forms_advanced']);
         publish('translations', ['js/translations.js']);
-        $view = request()->get('view') == 'index2' ? 'index2' : 'index';
-
-
-
-        return $this->translations->render('antares/translations::admin.translation.' . $view, compact('dataTable', 'languages', 'current', 'list', 'id'));
+        return $this->translations->render('antares/translations::admin.translation.index', compact('dataTable', 'languages', 'current', 'list', 'id'));
     }
 
 }

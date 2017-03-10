@@ -104,7 +104,7 @@ class TranslationServiceProvider extends ModuleServiceProvider
         $this->bootMemory();
         $this->attachMenu(TranslationBreadcrumbMenu::class);
         $this->attachMenu(LanguagesBreadcrumbMenu::class);
-        view()->composer(['antares/translations::admin.translation.index', 'antares/translations::admin.translation.index2'], TranslationsPane::class);
+        view()->composer(['antares/translations::admin.translation.index'], TranslationsPane::class);
 
         app(AccountListener::class)->listenForm()->listenFormSave();
     }
