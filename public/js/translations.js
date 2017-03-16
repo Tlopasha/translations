@@ -227,7 +227,7 @@
                     group: $('.translations-component').val()
                 },
                 success: function (response) {
-                    noty($.extend({}, APP.noti.successFm("xs", "glow"), {text: $(response.message).text()}));
+                    noty($.extend({}, APP.noti.successFM("xs", "glow"), {text: $(response.message).text()}));
                 },
                 error: function (error) {
                     noty($.extend({}, APP.noti.errorFM("xs", "glow"), {text: $(error.message).text()}));
@@ -246,7 +246,7 @@
                 method: 'POST',
                 data: {id: current.data('id')},
                 success: function (response) {
-                    noty($.extend({}, APP.noti.successFm("xs", "glow"), {text: $(response.message).text()}));
+                    noty($.extend({}, APP.noti.successFM("xs", "glow"), {text: $(response.message).text()}));
                 },
                 error: function (error) {
                     noty($.extend({}, APP.noti.errorFM("xs", "glow"), {text: $(error.message).text()}));
@@ -283,7 +283,7 @@
                     method: 'POST',
                     data: {id: $input.data('id'), value: inputVal},
                     success: function (response) {
-                        noty($.extend({}, APP.noti.successFm("xs", "glow"), {text: $(response.message).text()}));
+                        noty($.extend({}, APP.noti.successFM("xs", "glow"), {text: $(response.message).text()}));
                     },
                     error: function (error) {
                         noty($.extend({}, APP.noti.errorFM("xs", "glow"), {text: $(error.message).text()}));
