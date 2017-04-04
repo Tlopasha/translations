@@ -53,8 +53,10 @@ class AccountListener
     public function listenForm()
     {
 
-        $this->dispatcher->listen('antares.form: profile.*', function($row, $builder) {
+        $this->dispatcher->listen('antares.form: profile.*', function($name, array $params = []) {
 
+            $row     = $params[0];
+            $builder = $params[1];
 
             $builder->grid->fieldset(function (Fieldset $fieldset) {
                 $fieldset->legend(trans('antares/translations::messages.language_legend'));
