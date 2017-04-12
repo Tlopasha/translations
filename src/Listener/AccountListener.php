@@ -18,8 +18,6 @@
  * @link       http://antaresproject.io
  */
 
-
-
 namespace Antares\Translations\Listener;
 
 use Antares\Contracts\Html\Form\Fieldset;
@@ -55,12 +53,14 @@ class AccountListener
     public function listenForm()
     {
 
-        $this->dispatcher->listen('antares.form: profile.*', function($row, $builder) {
+        $this->dispatcher->listen('antares.form: profile.*', function($name, array $params = []) {
 
+            $row     = $params[0];
+            $builder = $params[1];
 
             $builder->grid->fieldset(function (Fieldset $fieldset) {
                 $fieldset->legend(trans('antares/translations::messages.language_legend'));
-                $langs = app('languages')->langs()->lists('name', 'code');
+                $langs = app('languages')->langs()->pluck('name', 'code');
                 $fieldset->control('select', 'language')
                         ->label(trans('antares/translations::messages.default_language_label'))
                         ->attributes(['data-flag-select', 'data-selectAR' => true, 'class' => 'w220'])
