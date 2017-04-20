@@ -18,8 +18,6 @@
  * @link       http://antaresproject.io
  */
 
-
-
 namespace Antares\Translations;
 
 use Antares\Translations\Http\Handlers\TranslationBreadcrumbMenu;

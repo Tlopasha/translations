@@ -18,8 +18,6 @@
  * @link       http://antaresproject.io
  */
 
-
-
 namespace Antares\Translations\Http\Form;
 
 use Antares\Html\Form\Fieldset;
@@ -49,7 +47,7 @@ class Language extends Grid
         $this->fieldset(function (Fieldset $fieldset) {
             $fieldset->control('button', 'cancel')
                     ->field(function() {
-                        return app('html')->link(handles("antares::translations"), trans('antares/foundation::label.cancel'), ['class' => 'btn btn--md btn--default mdl-button mdl-js-button']);
+                        return app('html')->link(handles("antares::translations/languages/index"), trans('antares/foundation::label.cancel'), ['class' => 'btn btn--md btn--default mdl-button mdl-js-button']);
                     });
             $fieldset->control('button', 'button')
                     ->attributes(['type' => 'submit', 'class' => 'btn btn-primary'])

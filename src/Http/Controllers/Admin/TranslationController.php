@@ -18,8 +18,6 @@
  * @link       http://antaresproject.io
  */
 
-
-
 namespace Antares\Translations\Http\Controllers\Admin;
 
 use Antares\Translations\Processor\TranslationProcessor as Processor;
@@ -67,7 +65,6 @@ class TranslationController extends AdminController implements TranslationListen
      */
     public function index($id, $code = null)
     {
-
         return $this->processor->index($id, $code);
     }
 
@@ -117,6 +114,26 @@ class TranslationController extends AdminController implements TranslationListen
     public function update($type)
     {
         return $this->processor->update($this, $type);
+    }
+
+    public function updateKey()
+    {
+        return $this->processor->updateKey();
+    }
+
+    public function updateTranslation()
+    {
+        return $this->processor->updateTranslation();
+    }
+
+    public function deleteTranslation()
+    {
+        return $this->processor->deleteTranslation();
+    }
+
+    public function addTranslation($type, $code)
+    {
+        return $this->processor->addTranslation($type, $code);
     }
 
     /**

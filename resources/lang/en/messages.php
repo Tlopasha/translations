@@ -17,9 +17,6 @@
  * @copyright  (c) 2017, Antares Project
  * @link       http://antaresproject.io
  */
-
-
-
 return [
     'group'                             => [
         'core'          => 'Core',
@@ -46,5 +43,15 @@ return [
     'sync_failed'                       => 'Translations import failed.',
     'translations_import_success'       => 'Translations has been imported successfully.',
     'translations_import_failed'        => 'Translations import failed.',
-    'unable_to_delete_default_language' => 'Unable to delete default language'
+    'unable_to_delete_default_language' => 'Unable to delete default language',
+    'response'                          => [
+        'translation_updated'           => 'Translation has been updated.',
+        'translation_update_failed'     => 'Translation has not been updated.',
+        'translation_key_updated'       => 'Translation key has been updated.',
+        'translation_key_update_failed' => 'Translation key has not been updated.',
+        'translation_deleted'           => 'Translation has been deleted.',
+        'translation_delete_failed'     => 'Translation has not been deleted.',
+        'translation_saved'             => 'Translation has been added.',
+        'translation_save_failed'       => 'Translation has not been added.',
+    ]
 ];
