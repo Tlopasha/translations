@@ -18,15 +18,13 @@
  * @link       http://antaresproject.io
  */
 
-
-
 namespace Antares\Translations\Http\Handlers;
 
 use Antares\Contracts\Authorization\Authorization;
 use Antares\Foundation\Support\MenuHandler;
 use Antares\Translations\Models\Languages;
 
-class TranslationBreadcrumbMenu extends MenuHandler
+class TranslationsBreadcrumbMenu extends MenuHandler
 {
 
     /**

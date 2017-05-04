@@ -20,7 +20,7 @@
 
 namespace Antares\Translations;
 
-use Antares\Translations\Http\Handlers\TranslationBreadcrumbMenu;
+use Antares\Translations\Http\Handlers\TranslationsBreadcrumbMenu;
 use Antares\Translations\Http\Handlers\LanguagesBreadcrumbMenu;
 use Antares\Foundation\Support\Providers\ModuleServiceProvider;
 use Antares\Updater\Http\Handlers\TranslationsPane;
@@ -102,7 +102,7 @@ class TranslationServiceProvider extends ModuleServiceProvider
         $this->addLanguageComponent('antares/translations', 'antares/translations', "{$path}/resources/lang");
         $this->addViewComponent('antares/translations', 'antares/translations', "{$path}/resources/views");
         $this->bootMemory();
-        $this->attachMenu(TranslationBreadcrumbMenu::class);
+        $this->attachMenu(TranslationsBreadcrumbMenu::class);
         $this->attachMenu(LanguagesBreadcrumbMenu::class);
         view()->composer(['antares/translations::admin.translation.index'], TranslationsPane::class);
 
