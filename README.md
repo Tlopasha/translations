@@ -9,6 +9,12 @@
 [![GitHub stars](https://img.shields.io/github/stars/antaresproject/project.svg)](https://github.com/antaresproject/project/stargazers)
 [![GitHub license](https://img.shields.io/badge/license-New%20BSD-blue.svg)](https://raw.githubusercontent.com/antaresproject/project/master/LICENSE)
 
+Translations is a module allowing administrator to manage the translations on the interface level. It provides handy tools for importing/exporting translations as files. The interface includes text comparison feature which makes it very easy to use even for non-technical person.
+
+It is recommended to link all the custom modules to Translations so configuration of the translations will be consistent and in one section on the UI level.
+
+
+
 ## Documentation
 
 Antares Translations Component documentation [antaresproject.io/docs/core_modules/translations](http://antaresproject.io/docs/site/core_modules/translations/).
