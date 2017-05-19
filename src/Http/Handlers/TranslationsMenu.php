@@ -18,8 +18,6 @@
  * @link       http://antaresproject.io
  */
 
-
-
 namespace Antares\Translations\Http\Handlers;
 
 use Antares\Contracts\Auth\Guard;
@@ -36,7 +34,6 @@ class TranslationsMenu extends MenuHandler
     protected $menu = [
         'id'    => 'translations',
         'title' => 'Translations',
-        'link'  => 'antares::translations/index',
     ];
 
     /**
@@ -57,6 +54,16 @@ class TranslationsMenu extends MenuHandler
     public function getPositionAttribute()
     {
         return $this->handler->has('tools') ? '^:tools' : '>:dashboard';
+    }
+
+    /**
+     * Get position.
+     *
+     * @return string
+     */
+    public function getLinkAttribute()
+    {
+        return handles('antares::translations/index/' . area());
     }
 
     /**

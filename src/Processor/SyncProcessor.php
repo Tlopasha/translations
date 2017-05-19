@@ -18,8 +18,6 @@
  * @link       http://antaresproject.io
  */
 
-
-
 namespace Antares\Translations\Processor;
 
 use Antares\Translations\Contracts\SyncListener;
@@ -77,8 +75,6 @@ class SyncProcessor extends Processor
             }
             return $listener->syncSuccess($area, $lang);
         } catch (Exception $e) {
-            vdump($e);
-            exit;
             Log::warning($e);
             return $listener->syncFailed($area, $lang);
         }
