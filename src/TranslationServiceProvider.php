@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Part of the Antares Project package.
+ * Part of the Antares package.
  *
  * NOTICE OF LICENSE
  *
@@ -14,13 +14,13 @@
  * @version    0.9.0
  * @author     Antares Team
  * @license    BSD License (3-clause)
- * @copyright  (c) 2017, Antares Project
+ * @copyright  (c) 2017, Antares
  * @link       http://antaresproject.io
  */
 
 namespace Antares\Translations;
 
-use Antares\Translations\Http\Handlers\TranslationBreadcrumbMenu;
+use Antares\Translations\Http\Handlers\TranslationsBreadcrumbMenu;
 use Antares\Translations\Http\Handlers\LanguagesBreadcrumbMenu;
 use Antares\Foundation\Support\Providers\ModuleServiceProvider;
 use Antares\Updater\Http\Handlers\TranslationsPane;
@@ -102,7 +102,7 @@ class TranslationServiceProvider extends ModuleServiceProvider
         $this->addLanguageComponent('antares/translations', 'antares/translations', "{$path}/resources/lang");
         $this->addViewComponent('antares/translations', 'antares/translations', "{$path}/resources/views");
         $this->bootMemory();
-        $this->attachMenu(TranslationBreadcrumbMenu::class);
+        $this->attachMenu(TranslationsBreadcrumbMenu::class);
         $this->attachMenu(LanguagesBreadcrumbMenu::class);
         view()->composer(['antares/translations::admin.translation.index'], TranslationsPane::class);
 
