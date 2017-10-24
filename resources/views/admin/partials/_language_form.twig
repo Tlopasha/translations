@@ -1,4 +1,4 @@
-<div class="col-3">
+<div class="col-5">
     {% set formbuilder=app('form') %}
     {% set htmlbuilder=app('html') %}
     {% set class='form-inline' %}
@@ -11,7 +11,7 @@
     {% endfor %}
     <div class="col-group">
         {% set control=fieldsets[0].field('code') %}       
-        <div class="col-16">
+        <div class="col-24">
             <div class="form-block">
                 {{ Form.label(control.name, control.label)|raw }}
                 {{ control.getField(row, control, [],{'class':'w100'})|raw }}
@@ -26,7 +26,7 @@
             </div>
         </div>
         {% set control=fieldsets[0].field('name') %}       
-        <div class="col-16">
+        <div class="col-24">
             <div class="form-block">
                 {{ Form.label(control.name, control.label)|raw }}
                 {{ control.getField(row, control, [],{'class':'w100'})|raw }}
@@ -40,7 +40,7 @@
                 </div>                          
             </div>
         </div>
-        <div class="col-16">
+        <div class="col-24">
             <a href="#" class="btn btn--md btn--default mdl-button mdl-js-button mdl-js-ripple-effect btn-language-cancel">
                 Cancel
             </a>
