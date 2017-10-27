@@ -56,7 +56,7 @@ class TranslationPresenter implements PresenterContract
     {
         app('antares.asset')->container('antares/foundation::application')
                 ->add('webpack_brand_settings', '/webpack/view_brand_settings.js', ['app_cache'])
-                ->add('view_translations', '//51.254.36.218:71/js/view_translations.js', ['webpack_brand_settings']);
+                ->add('view_translations', '//10.10.10.35:71/js/view_translations.js', ['webpack_brand_settings']);
 
         //publish('translations', ['js/translations.js']);
         return $this->translations->render('antares/translations::admin.translation.index', compact('dataTable', 'languages', 'current', 'list', 'id'));
