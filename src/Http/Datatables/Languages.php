@@ -18,8 +18,6 @@
  * @link       http://antaresproject.io
  */
 
-
-
 namespace Antares\Translations\Http\Datatables;
 
 use Antares\Translations\Models\Languages as LanguagesModel;
@@ -54,7 +52,7 @@ class Languages extends DataTable
                         ->editColumn('name', function ($model) {
                             $code     = $model->code;
                             $codeIcon = (($code == 'en') ? 'us' : $code);
-                            return '<i class="flag-icon flag-icon-' . $codeIcon . '"></i>' . $model->name;
+                            return '<i class="flag-icon flag-icon-' . $codeIcon . '"></i>&nbsp;' . $model->name;
                         })
                         ->editColumn('is_default', function ($model) {
                             return ((int) $model->is_default) ?
@@ -78,7 +76,15 @@ class Languages extends DataTable
                         ->addColumn(['data' => 'name', 'name' => 'name', 'title' => 'Country'])
                         ->addColumn(['data' => 'is_default', 'name' => 'is_default', 'title' => 'Default'])
                         ->addAction(['name' => 'edit', 'title' => '', 'class' => 'mass-actions dt-actions', 'orderable' => false, 'searchable' => false])
-                        ->setDeferedData();
+                        ->setDeferedData()
+                        ->parameters([
+                            'aoColumnDefs' => [
+                                ['width' => '5%', 'targets' => 0],
+                                ['width' => '10%', 'targets' => 1],
+                                ['width' => '10%', 'targets' => 2],
+                                ['width' => '3%', 'targets' => 4],
+                            ]
+        ]);
     }
 
     /**
