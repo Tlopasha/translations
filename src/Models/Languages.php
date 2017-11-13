@@ -25,6 +25,15 @@ namespace Antares\Translations\Models;
 use Antares\Logger\Traits\LogRecorder;
 use Antares\Model\Eloquent;
 
+/**
+ * Class Languages
+ * @package Antares\Translations\Models
+ *
+ * @property integer $id
+ * @property string $code
+ * @property string $name
+ * @property string $icon_code
+ */
 class Languages extends Eloquent
 {
 
@@ -43,6 +52,15 @@ class Languages extends Eloquent
      * @var array
      */
     protected $fillable = ['code', 'name'];
+
+    /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = [
+        'icon_code',
+    ];
 
     /**
      * tables doesnt have timestamp columns
@@ -69,6 +87,19 @@ class Languages extends Eloquent
     public static function getPatternUrl($id = null)
     {
         return !is_null($id) ? handles('antares::translations/languages/index') : handles('antares::translations/languages/index');
+    }
+
+    /**
+     * @return string
+     */
+    public function getIconCodeAttribute() {
+        switch($this->code) {
+            case 'en':
+                return 'us';
+
+            default:
+                return $this->code;
+        }
     }
 
 }
