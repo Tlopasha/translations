@@ -35,6 +35,10 @@ class Language extends Grid
         $this->name('Language form');
         $this->simple(handles('antares::translations/languages/add'), ['id' => 'language-form']);
         $this->fieldset(function (Fieldset $fieldset) {
+
+            $fieldset->legend('Add new language');
+
+
             $fieldset->control('input:text', 'code')
                     ->label(trans('Code'))
                     ->attributes(['size' => 2, 'class' => 'w100']);

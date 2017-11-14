@@ -18,8 +18,6 @@
  * @link       http://antaresproject.io
  */
 
-
-
 namespace Antares\Translations\Http\Breadcrumb;
 
 use Antares\Breadcrumb\Navigation;
@@ -44,7 +42,7 @@ class Breadcrumb extends Navigation
      */
     public function onLanguageAdd()
     {
-        $this->onTranslationList();
+
         $this->breadcrumbs->register('languages', function($breadcrumbs) {
             $breadcrumbs->parent('translations');
             $breadcrumbs->push('Languages', handles('antares::translations/languages/index'));
