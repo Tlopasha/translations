@@ -18,8 +18,6 @@
  * @link       http://antaresproject.io
  */
 
-
-
 namespace Antares\Translations\Processor;
 
 use Antares\Translations\Http\Datatables\Languages as LanguagesDatatable;
@@ -131,6 +129,8 @@ class LanguageProcessor extends Processor
                 $data = $form->getData();
                 $this->languageRepository->insert($data);
             } catch (Exception $ex) {
+                vdump($ex);
+                exit;
                 Log::warning($e);
                 return $listener->createFailed($ex->getMessage());
             }
