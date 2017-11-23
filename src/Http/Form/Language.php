@@ -61,8 +61,8 @@ class Language extends Grid
 
 
         $this->rules([
-            'code' => ['required', 'unique:tbl_languages,code', 'max:2', 'min:2'],
-            'name' => ['required', 'unique:tbl_languages,name', 'min:2'],
+            'code' => ['required', 'alpha', 'unique:tbl_languages,code', 'max:2', 'min:2'],
+            'name' => ['required', 'alpha', 'unique:tbl_languages,name', 'min:2'],
         ]);
         $this->ajaxable();
     }

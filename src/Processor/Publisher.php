@@ -18,8 +18,6 @@
  * @link       http://antaresproject.io
  */
 
-
-
 namespace Antares\Translations\Processor;
 
 use Illuminate\Translation\Translator;
@@ -157,8 +155,12 @@ class Publisher
      */
     protected function getTranslationGroups(Collection $list)
     {
+        $areas  = config('areas.areas');
         $groups = [];
         foreach ($list as $model) {
+            if (!array_key_exists($model->area, $areas)) {
+                continue;
+            }
             if (!isset($groups[$model->area][$model->group])) {
                 $groups[$model->area][$model->group] = [];
             }
