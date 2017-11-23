@@ -20,6 +20,7 @@
 
 namespace Antares\Translations;
 
+use Antares\Events\SystemReady\AdminReady;
 use Antares\Translations\Http\Handlers\TranslationsBreadcrumbMenu;
 use Antares\Translations\Http\Handlers\LanguagesBreadcrumbMenu;
 use Antares\Foundation\Support\Providers\ModuleServiceProvider;
@@ -49,7 +50,7 @@ class TranslationServiceProvider extends ModuleServiceProvider
      * @var array
      */
     protected $listen = [
-        'antares.ready: admin' => ['Antares\Translations\Composers\LanguageSelector'],
+        AdminReady::class => ['Antares\Translations\Composers\LanguageSelector'],
     ];
 
     /**
