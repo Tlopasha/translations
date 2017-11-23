@@ -18,8 +18,6 @@
  * @link       http://antaresproject.io
  */
 
-
-
 namespace Antares\Translations\Http\Form;
 
 use Antares\Foundation\Http\Presenters\DropzoneTrait;
@@ -49,8 +47,7 @@ class Import extends Grid
         $this->fieldset(function (Fieldset $fieldset) use($url, $locale, $type) {
             $fieldset->control('dropzone', 'csv')
                     ->attributes($this->dropzoneAttributes($url))
-                    ->label('Select csv file')
-                    ->help('*Only csv files are accepted');
+                    ->label('Select csv file');
 
             $fieldset->control('button', 'cancel')
                     ->field(function() use($locale, $type) {

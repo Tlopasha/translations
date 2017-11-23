@@ -18,8 +18,6 @@
  * @link       http://antaresproject.io
  */
 
-
-
 namespace Antares\Translations\Http\Presenters;
 
 use Antares\Translations\Contracts\LanguagePresenter as PresenterContract;

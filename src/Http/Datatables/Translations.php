@@ -54,7 +54,7 @@ class Translations extends DataTable
         $translationUrl = handles('antares::translations/update-translation/' . from_route('id'));
         $deleteUrl      = handles('antares::translations/delete-translation/' . from_route('id'));
 
-        $canEditTranslation = app('antares.acl')->make('antares/translations')->can('edit-translation');
+
         return $this->prepare()
                         ->editColumn('key', function ($item) use($keyUrl) {
                             return '<div class="table-key__mobile-open">
@@ -103,7 +103,7 @@ class Translations extends DataTable
         $builder = $this
                 ->setName('Translations List')
                 ->setQuery($this->query())
-                ->addColumn(['data' => 'id', 'name' => 'id', 'title' => 'Id', 'searchable' => false, 'orderable' => false, 'class' => 'no-sort'])
+                ->addColumn(['data' => 'id', 'name' => 'id', 'title' => 'Id', 'searchable' => false, 'orderable' => false, 'class' => 'no-sort desktop'])
                 ->addColumn(['data' => 'key', 'name' => 'key', 'title' => 'Key'])
                 ->addColumn(['data' => 'value', 'name' => 'value', 'title' => 'Translation'])
                 ->addAction(['name' => 'edit', 'title' => '', 'class' => 'inline', 'searchable' => false, 'orderable' => false]);

@@ -18,8 +18,6 @@
  * @link       http://antaresproject.io
  */
 
-
-
 namespace Antares\Translations\Validator;
 
 use Illuminate\Validation\Validator;

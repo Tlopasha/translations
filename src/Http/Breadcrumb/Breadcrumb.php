@@ -18,8 +18,6 @@
  * @link       http://antaresproject.io
  */
 
-
-
 namespace Antares\Translations\Http\Breadcrumb;
 
 use Antares\Breadcrumb\Navigation;

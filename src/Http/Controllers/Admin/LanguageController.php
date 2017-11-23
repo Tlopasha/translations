@@ -18,8 +18,6 @@
  * @link       http://antaresproject.io
  */
 
-
-
 namespace Antares\Translations\Http\Controllers\Admin;
 
 use Antares\Translations\Processor\LanguageProcessor as Processor;
@@ -47,6 +45,7 @@ class LanguageController extends AdminController implements LanguageListener
         parent::__construct();
         $this->processor = $processor;
         $this->request   = $request;
+        active_menu_route('translations/index/' . area());
     }
 
     /**

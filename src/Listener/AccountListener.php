@@ -89,7 +89,7 @@ class AccountListener
      */
     public function listenFormSave()
     {
-        $this->dispatcher->listen('eloquent.saved: App\User', function($model) {
+        $this->dispatcher->listen('eloquent.saved: ' . \Antares\Model\User::class, function($model) {
             if (!is_null($language = Input::get('language'))) {
                 $uid         = auth()->user()->id;
                 $meta        = UserMeta::firstOrNew(['user_id' => $uid, 'name' => 'language']);
@@ -97,6 +97,7 @@ class AccountListener
                 $meta->save();
             }
         });
+
         return $this;
     }
 

@@ -18,12 +18,10 @@
  * @link       http://antaresproject.io
  */
 
-
-
 namespace Antares\Translations;
 
 use Illuminate\Translation\Translator as LaravelTranslator;
-use Illuminate\Translation\LoaderInterface;
+use Antares\Translation\FileLoader;
 
 class Translator extends LaravelTranslator
 {
@@ -33,10 +31,10 @@ class Translator extends LaravelTranslator
     /**
      * Constructing
      * 
-     * @param LoaderInterface $loader
+     * @param FileLoader $loader
      * @param String $locale
      */
-    public function __construct(LoaderInterface $loader, $locale)
+    public function __construct(FileLoader $loader, $locale)
     {
         parent::__construct($loader, $locale);
         $this->isPublished = is_dir(resource_path('lang/' . area()));

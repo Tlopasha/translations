@@ -18,8 +18,6 @@
  * @link       http://antaresproject.io
  */
 
-
-
 namespace Antares\Updater\Http\Handlers;
 
 use Antares\Foundation\Http\Composers\LeftPane;
@@ -37,6 +35,9 @@ class TranslationsPane extends LeftPane
         $menu  = app('antares.widget')->make('menu.translations.pane');
         $areas = config('areas.areas');
         $area  = request()->segment(4);
+
+
+
         foreach ($areas as $name => $title) {
             $menu->add($name)
                     ->link(handles('antares::translations/index/' . $name))
@@ -44,7 +45,10 @@ class TranslationsPane extends LeftPane
                     ->icon('zmdi-accounts')
                     ->active($area == $name);
         }
-        app('antares.widget')->make('pane.left')->add('translations')->content(view('antares/translations::admin.partials._left_pane'));
+        app('antares.widget')
+                ->make('pane.left')
+                ->add('translations')
+                ->content(view('antares/translations::admin.partials._left_pane'));
     }
 
 }

@@ -18,8 +18,6 @@
  * @link       http://antaresproject.io
  */
 
-
-
 namespace Antares\Translations\Processor;
 
 use Antares\Translations\Http\Datatables\Languages as LanguagesDatatable;
@@ -131,6 +129,8 @@ class LanguageProcessor extends Processor
                 $data = $form->getData();
                 $this->languageRepository->insert($data);
             } catch (Exception $ex) {
+                vdump($ex);
+                exit;
                 Log::warning($e);
                 return $listener->createFailed($ex->getMessage());
             }
@@ -178,7 +178,7 @@ class LanguageProcessor extends Processor
             return $this->presenter->import();
         } elseif (!is_null($uploadedFile) and ( $uploadedFile instanceof LaravelUploadedFile)) {
             return $this->uploadTemporary($uploadedFile, $input);
-        } elseif (!is_null($uploadedFile) and is_string($uploadedFile)) {
+        } elseif ($uploadedFile and is_string($uploadedFile)) {
             return ($this->translationRepository->importTranslations($uploadedFile, $type)) ? $listener->importSuccess($type, $locale) : $listener->importFailed();
         }
         return $listener->importFailed();
@@ -309,7 +309,7 @@ class LanguageProcessor extends Processor
                 $path = implode(DIRECTORY_SEPARATOR, [$vendor, $dir, 'resources', 'lang', $code]);
                 $this->deleteLangFiles($path);
             }
-            $directories = $this->filesystem->directories($vendor . DIRECTORY_SEPARATOR . 'components');
+            $directories = $this->filesystem->directories($vendor . DIRECTORY_SEPARATOR . 'modules');
             foreach ($directories as $directory) {
                 $path = implode(DIRECTORY_SEPARATOR, [$directory, 'resources', 'lang', $code]);
                 $this->deleteLangFiles($path);
