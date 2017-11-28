@@ -1,4 +1,28 @@
 {% extends "antares/foundation::layouts.antares.index" %}
-{% block content %}
-    {{ form|raw }}
+{% block sidebar_top_widgets %}    
+    <div class="item-grp-single is-hidden"  data-tooltip-inline="{{ trans('Widgets Edit Toggle') }}">
+        <div class="mdl-js-button mdl-js-ripple-effect widget-edit" id="widgets-edit">
+            <i class="icon--widgets-edit"></i>
+        </div>
+    </div>
 {% endblock %}
+{% block main_content %}
+    <section class="main-content nopadding">
+        {% include 'antares/foundation::components.messages'  %}                                             
+
+        <div class="grid-container grid-container--1col grid-container--footer grid-container--no-padd">
+
+
+            <div class="grid-col grid-col--container">
+                <section class="generals-form gen-settings--full" data-preload>
+                    {% block content %}
+                        {{ form|raw }}
+                    {% endblock %}
+                </section>                    
+            </div>
+        </div>
+    </section>            
+{% endblock %} 
+
+
+

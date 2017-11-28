@@ -1,10 +1,10 @@
-<div class="col-group pt10 pb10">
+<div class="col-group">
     <div class="col-24">        
-        <span>{{ field.label|raw }}</span>
+        <legend>{{ field.label|raw }}</legend>
     </div>
 </div>
 <div class="col-group">
-    <div class="col-mb-9">        
+    <div class="col-9 col-mb-24">        
         <div class="input-field">            
             <div id="{{ id }}" class="dropzone dropzone-form brand-logo" style="height:300px;">
                 <div class="dz-message" data-dz-message>
@@ -21,7 +21,7 @@
     </div>
 </div>
 <div class="col-group ">
-    <div class="col-mb-9">            
+    <div class="col-9 col-mb-24">            
         <div class="input-field__desc">
             {{ trans('*Only csv files are accepted') }}
         </div>
