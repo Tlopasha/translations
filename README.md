@@ -1,6 +1,6 @@
 # Antares Translations Module
 
-[![Laravel 5.4](https://img.shields.io/badge/Laravel-5.4-orange.svg)](http://laravel.com)
+[![Laravel 5.5](https://img.shields.io/badge/Laravel-5.5-orange.svg)](http://laravel.com)
 [![Coverage Status](https://coveralls.io/repos/github/antaresproject/translations/badge.svg?branch=0.9.2)](https://coveralls.io/github/antaresproject/translations?branch=0.9.2)
 [![Build Status](https://travis-ci.org/antaresproject/translations.svg?branch=0.9.2)](https://travis-ci.org/antaresproject/translations)
 [![Code Climate](https://codeclimate.com/github/antaresproject/translations/badges/gpa.svg)](https://codeclimate.com/github/antaresproject/translations)
