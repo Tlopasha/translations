@@ -64,10 +64,6 @@ class TranslationServiceProvider extends ModuleServiceProvider
         $app['antares.translations.installed'] = true;
         $this->bindContracts();
 
-        $this->app->bind('languages', function() use($app) {
-            return new Languages($app);
-        });
-
         $this->app->singleton('translator', function($app) {
             $loader = $app->make('translation.loader');
             $locale = $app->make('config')->get('app.locale');
